@@ -17,8 +17,11 @@ for sku in PRICES:
 	i+=1
 
 def organise_deals(deals):
-	# organises deals based on amount saved, input - dictionary in same format as 'DEALS' var defined above
+	# organises deals based on amount saved, 
+	# input - dictionary in same format as 'DEALS' var defined above
+	# returns - dictionary in same format but organised by how much price is saved
 	organised_deals = {}
+	deal_list = []
 	for deal in deals:
 		for sku in deal:
 
@@ -55,3 +58,4 @@ def checkout(skus):
 		total_cost += PRICES[sku] * shopping_list[INDEX[sku]]
 
 	return total_cost
+
