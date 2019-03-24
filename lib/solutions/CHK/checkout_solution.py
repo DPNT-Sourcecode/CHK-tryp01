@@ -14,13 +14,16 @@ def checkout(skus):
 		n = skus.count(sku) # number of elements
 		if sku in DEALS:
 			deal = DEALS[sku] 
-			n_required, price = deal
-			total_cost += price * n // n_required
+			n_required, deal_price = deal
+			total_cost += deal_price * n // n_required
+			print(1, deal_price * n // n_required)
 			total_cost += (n % n_required) * PRICES[sku]
+			print(2, (n % n_required) * PRICES[sku])
 		else:
 			total_cost += n*PRICES[sku]
+			print(3, n*PRICES[sku])
 
 	return total_cost
 
-print(checkout('AAAB'))
+print(checkout('AA'))
 
