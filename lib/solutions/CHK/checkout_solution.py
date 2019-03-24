@@ -27,6 +27,13 @@ PRICES =  {'A':50,
 			'Z':21, 
 	}
 
+INDEX = {} # index dictionary used for shopping_list variable, 
+# format {'A':0, 'B':1, etc...}
+i=0
+for sku in PRICES:
+	INDEX[sku] = i
+	i+=1
+
 DEALS = {} # dictionary of deals, 1 deal is a list in format {SKU: [number required, price]}
 # will be ordered later
 DEALS['A'*3] = 130
@@ -45,12 +52,9 @@ DEALS['U'*4] = 120
 DEALS['V'*2] = 90
 DEALS['V'*3] = 130
 
-INDEX = {} # index dictionary used for shopping_list variable, 
-# format {'A':0, 'B':1, etc...}
-i=0
-for sku in PRICES:
-	INDEX[sku] = i
-	i+=1
+GROUP_DEALS = [] # elements are a list in format: [SKUs, n_elements, price]
+GROUP_DEALS.append(['STXYZ', 3, 45])
+
 
 def organise_deals(deals):
 	# organises deals based on amount saved, 
@@ -111,8 +115,3 @@ def checkout(skus):
 		total_cost += PRICES[sku] * shopping_list[INDEX[sku]]
 
 	return total_cost
-
-
-
-
-
