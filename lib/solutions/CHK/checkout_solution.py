@@ -137,7 +137,3 @@ def checkout(skus):
 		total_cost += PRICES[sku] * shopping_list[INDEX[sku]]
 
 	return total_cost
-
-
-
-
