@@ -16,8 +16,11 @@ def checkout(skus):
 			deal = DEALS[sku]
 			n_required, price = deal
 			total_cost += price * n // n_required
+			total_cost += n % n_required * PRICES[sku]
 		else:
-
+			total_cost += n*PRICES[sku]
 
 	return total_cost
+
+print(checkout('AAABBA'))
 
