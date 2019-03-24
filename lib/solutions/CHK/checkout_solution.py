@@ -2,13 +2,14 @@
 PRICES = {'A':50, 'B':30, 'C':20, 'D':15, 'E':40} # menu
 DEALS = {} # dictionary of deals, 1 deal is a list in format {SKU: [number required, price]}
 
-# important to order from best deals to worst
+# important to order from best deals to worst, could add sort function to do this for us
 DEALS['A'*5] = 200
 DEALS['BEE'] = 80
 DEALS['A'*3] = 130
 DEALS['B'*2] = 45
 
-INDEX = {} # 
+INDEX = {} # index dictionary used for shopping_list variable, 
+# format {'A':0, 'B':1, etc...}
 for i in range(len(PRICES)):
 	INDEX[PRICES[i]] = i
 
@@ -28,7 +29,7 @@ def checkout(skus):
 	total_cost = 0
 	for deal in DEALS: # check each deal in order of best to worst
 		make_deal = True
-		while make_deal:
+		while make_deal: # while loop to ensure multiple deals can be made
 			for sku in deal: # go through all shopping items in deal 
 				# (can have duplicates which will slow things down)
 				if deal.count(sku) > shopping_list[INDEX[sku]]: 
@@ -41,6 +42,6 @@ def checkout(skus):
 					shopping_list[INDEX[sku]] -= 1
 
 	for sku in PRICES: # remaining shopping list
-
+		total_cost += PRICES[sku] * shopping_list[INDEX[sku]]
 
 	return total_cost
