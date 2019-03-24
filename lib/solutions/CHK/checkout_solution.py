@@ -9,12 +9,13 @@ DEALS.append(['B', 2, 45])
 # skus = unicode string
 def checkout(skus):
 
-	sku_deals = [] 
+	sku_deals = '' # will be a list of all SKUs in a deal
 	for deal in DEALS:
-		sku_deals.append(deal[0])
+		sku_deals = sku_deals + deal[0]
 
-	# main loop
 	total_cost = 0
+	for sku in PRICES:
+		if SKU in sku_deals:
 
 
 	return total_cost
