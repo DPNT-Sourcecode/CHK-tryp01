@@ -50,17 +50,21 @@ def organise_deals(deals):
 	deal_list = [] # in format [sku code, price, amount saved] for sorting later
 	for deal in deals: # deal is a string desribing sku code for deal
 		price = deals[deal]
-		raw_price = 0
+		raw_price = 0 # amount it would cost without deal
 		for sku in deal:
 			raw_price += PRICES[sku]
 		deal_list.append([deal, price, raw_price - price])
 
-	best_deal = ['', 0, 0]
-	for info in deal_list:
+	n_deals = len(deal_list):
+	for i in range(n_deals):
+		best_deal = ['', 0, 0]
+		for deal_info in deal_list:
+			if deal_info[2] > best_deal[2]: # if it is a better deal
+				best_deal = deal_info
 
+DEALS = organise_deals(DEALS) 
 
-DEALS = organise_deals(DEALS) # test code
-for deal in DEALS:
+for deal in DEALS: # test code
 	print(deal, DEALS[deal])
 
 # noinspection PyUnusedLocal
@@ -95,8 +99,3 @@ def checkout(skus):
 		total_cost += PRICES[sku] * shopping_list[INDEX[sku]]
 
 	return total_cost
-
-
-
-
-
