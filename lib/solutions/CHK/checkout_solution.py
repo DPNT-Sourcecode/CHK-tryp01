@@ -8,9 +8,9 @@ DEALS['BEE'] = 80
 DEALS['A'*3] = 130
 DEALS['B'*2] = 45
 
-index = {} # 
+INDEX = {} # 
 for i in range(len(PRICES)):
-	index[PRICES[i]] = i
+	INDEX[PRICES[i]] = i
 
 # noinspection PyUnusedLocal
 # skus = unicode string
@@ -27,7 +27,7 @@ def checkout(skus):
 
 	total_cost = 0
 	for deal in DEALS:
-		for sku in PRICES:
-			if deal.count(sku)
+		for sku in deal: # go through all shopping items
+			if deal.count(sku) > shopping_list[INDEX[sku]] # deal cannot be made
 
 	return total_cost
