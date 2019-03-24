@@ -26,20 +26,8 @@ def checkout(skus):
 		shopping_list.append(skus.count(sku))
 
 	total_cost = 0
-	for sku in PRICES:
-		n = skus.count(sku) # number of elements
-		if sku in DEALS:
-			deal = DEALS[sku] 
-			n_required, deal_price = deal
-			total_cost += deal_price * (n // n_required) # number of deals
-			total_cost += (n % n_required) * PRICES[sku] # remainder
-		else:
-			total_cost += n*PRICES[sku] # no deals
+	for deal in DEALS:
+		for sku in PRICES:
+			if deal.count(sku)
 
 	return total_cost
-
-
-
-
-
-
