@@ -105,9 +105,6 @@ def organise_deals(deals):
 
 DEALS = organise_deals(DEALS) 
 
-for deal in DEALS:
-	print(deal)
-
 # noinspection PyUnusedLocal
 # skus = unicode string
 def checkout(skus):
@@ -140,8 +137,6 @@ def checkout(skus):
 		total_cost += PRICES[sku] * shopping_list[INDEX[sku]]
 
 	return total_cost
-
-print(checkout('ZZZ'))
 
 
 
