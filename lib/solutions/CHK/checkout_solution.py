@@ -55,12 +55,16 @@ DEALS['V'*3] = 130
 GROUP_DEALS = [] # elements are a list in format: [SKUs, n_elements, price]
 GROUP_DEALS.append(['STXYZ', 3, 45])
 
-# analyse group deals
+# analyse group deals by creating a combination of n deals
+# Warning - having a large number of deals could slow the initialising down considerably 
 for group_deal in GROUP_DEALS:
 	skus, n_elements, price = group_deal
-	indexing = []  
+	indexing = []  # used to keep tabs on things
 	for i in range(n_elements):
-		indexing.append(0)
+		indexing.append(0) # should be list of zeros length n_elements e.g. [0,0,0]
+	for i in range(n_elements**len(skus)): # loop over all possible combinations
+		indexing[0] += 1
+		print(skus[indexing[0], skus[indexing[1], skus[indexing[2])
 
 
 
@@ -124,4 +128,5 @@ def checkout(skus):
 		total_cost += PRICES[sku] * shopping_list[INDEX[sku]]
 
 	return total_cost
+
 
