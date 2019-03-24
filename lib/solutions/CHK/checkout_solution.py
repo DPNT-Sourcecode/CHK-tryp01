@@ -41,6 +41,9 @@ DEALS['NNNM'] = 120
 DEALS['P'*5] = 200
 DEALS['Q'*3] = 80
 DEALS['R'*3+'Q'] = 150
+DEALS['U'*4] = 120
+DEALS['V'*2] = 90
+DEALS['V'*3] = 130
 
 INDEX = {} # index dictionary used for shopping_list variable, 
 # format {'A':0, 'B':1, etc...}
@@ -76,9 +79,6 @@ def organise_deals(deals):
 
 DEALS = organise_deals(DEALS) 
 
-for deal in DEALS: # test code
-	print(deal, DEALS[deal])
-
 # noinspection PyUnusedLocal
 # skus = unicode string
 def checkout(skus):
@@ -111,5 +111,6 @@ def checkout(skus):
 		total_cost += PRICES[sku] * shopping_list[INDEX[sku]]
 
 	return total_cost
+
 
 
