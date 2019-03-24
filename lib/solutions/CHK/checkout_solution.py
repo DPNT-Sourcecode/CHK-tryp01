@@ -43,7 +43,7 @@ DEALS['BEE'] = 80
 DEALS['F'*3] = 20
 DEALS['H'*5] = 45
 DEALS['H'*10] = 80
-DEALS['K'*2] = 150
+DEALS['K'*2] = 120
 DEALS['NNNM'] = 120
 DEALS['P'*5] = 200
 DEALS['Q'*3] = 80
@@ -137,6 +137,7 @@ def checkout(skus):
 		total_cost += PRICES[sku] * shopping_list[INDEX[sku]]
 
 	return total_cost
+
 
 
 
