@@ -8,19 +8,19 @@ DEALS['B'] = [2, 45]
 # noinspection PyUnusedLocal
 # skus = unicode string
 def checkout(skus):
-
+	print('')
 	total_cost = 0
 	for sku in PRICES:
-		n = skus.count(sku)
+		n = skus.count(sku) # number of elements
 		if sku in DEALS:
-			deal = DEALS[sku]
+			deal = DEALS[sku] 
 			n_required, price = deal
 			total_cost += price * n // n_required
-			total_cost += n % n_required * PRICES[sku]
+			total_cost += (n % n_required) * PRICES[sku]
 		else:
 			total_cost += n*PRICES[sku]
 
 	return total_cost
 
-print(checkout('AAABBA'))
+print(checkout('AAAB'))
 
