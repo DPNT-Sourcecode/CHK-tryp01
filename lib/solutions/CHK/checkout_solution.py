@@ -62,8 +62,17 @@ for group_deal in GROUP_DEALS:
 	indexing = []  # used to keep tabs on things
 	for i in range(n_elements):
 		indexing.append(0) # should be list of zeros length n_elements e.g. [0,0,0]
-	for i in range(n_elements**len(skus)): # loop over all possible combinations
-		indexing[0] += 1
+	for i in range(n_elements**len(skus)): # loop over all possible group combinations
+		carry = True
+		for j in range(n_elements):
+			if carry:
+				indexing[j]+=1
+				if indexing[j] == len(skus):
+					indexing[j] -= len(skus)
+				else:
+					carry = False
+			else:
+				break
 		print(skus[indexing[0], skus[indexing[1], skus[indexing[2])
 
 
@@ -128,5 +137,6 @@ def checkout(skus):
 		total_cost += PRICES[sku] * shopping_list[INDEX[sku]]
 
 	return total_cost
+
 
 
