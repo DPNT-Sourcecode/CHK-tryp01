@@ -1,30 +1,30 @@
 # data
-PRICES =  {A:50,    
-			B:30,    
-			C:20,    
-			D:15,    
-			E:40,    
-			F:10,
-			G:20, 
-			H:10,
-			I:35, 
-			J:60, 
-			K:80, 
-			L:90, 
-			M:15, 
-			N:40, 
-			O:10, 
-			P:50,  
-			Q:30,  
-			R:50, 
-			S:30, 
-			T:20, 
-			U:40,  
-			V:50,  
-			W:20, 
-			X:90, 
-			Y:10, 
-			Z:50, 
+PRICES =  {'A':50,    
+			'B':30,    
+			'C':20,    
+			'D':15,    
+			'E':40,    
+			'F':10,
+			'G':20, 
+			'H':10,
+			'I':35, 
+			'J':60, 
+			'K':80, 
+			'L':90, 
+			'M':15, 
+			'N':40, 
+			'O':10, 
+			'P':50,  
+			'Q':30,  
+			'R':50, 
+			'S':30, 
+			'T':20, 
+			'U':40,  
+			'V':50,  
+			'W':20, 
+			'X':90, 
+			'Y':10, 
+			'Z':50, 
 	}
 
 DEALS = {} # dictionary of deals, 1 deal is a list in format {SKU: [number required, price]}
@@ -57,7 +57,7 @@ def organise_deals(deals):
 
 	n_deals = len(deal_list)
 	for i in range(n_deals):
-		best_deal = ['', 0, 0]
+		best_deal = deal_list[0]
 		for deal_info in deal_list: #[sku code, price, amount saved]
 			if deal_info[2] > best_deal[2]: # if it is a better deal
 				best_deal = deal_info
@@ -104,3 +104,4 @@ def checkout(skus):
 		total_cost += PRICES[sku] * shopping_list[INDEX[sku]]
 
 	return total_cost
+
