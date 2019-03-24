@@ -26,8 +26,15 @@ def checkout(skus):
 		shopping_list.append(skus.count(sku))
 
 	total_cost = 0
-	for deal in DEALS:
+	for deal in DEALS: # check each deal in order of best to worst
+		make_deal = True
 		for sku in deal: # go through all shopping items
-			if deal.count(sku) > shopping_list[INDEX[sku]] # deal cannot be made
+			if deal.count(sku) > shopping_list[INDEX[sku]]: # deal cannot be made
+				make_deal = False
+				break
+		if make_deal:
+			total_cost += DEALS[deal] # add price of deal
+			for sku in deal:
+				shopping_list[INDEX[sku]] -= 1
 
 	return total_cost
