@@ -1,5 +1,5 @@
 # data
-PRICES = {'A':50, 'B':30, 'C':20, 'D':15, 'E':40} # menu
+PRICES = {'A':50, 'B':30, 'C':20, 'D':15, 'E':40, 'F':10} # menu
 DEALS = {} # dictionary of deals, 1 deal is a list in format {SKU: [number required, price]}
 
 # important to order from best deals to worst, could add sort function to do this if more deals added
@@ -7,6 +7,7 @@ DEALS['A'*5] = 200
 DEALS['BEE'] = 80
 DEALS['A'*3] = 130
 DEALS['B'*2] = 45
+DEALS['F'*3] = 20
 
 INDEX = {} # index dictionary used for shopping_list variable, 
 # format {'A':0, 'B':1, etc...}
