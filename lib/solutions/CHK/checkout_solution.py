@@ -10,8 +10,10 @@ DEALS['B'*2] = 45
 
 INDEX = {} # index dictionary used for shopping_list variable, 
 # format {'A':0, 'B':1, etc...}
-for i in range(len(PRICES)):
-	INDEX[PRICES[i]] = i
+i=0
+for sku in PRICES:
+	INDEX[sku] = i
+	i+=1
 
 # noinspection PyUnusedLocal
 # skus = unicode string
@@ -45,3 +47,5 @@ def checkout(skus):
 		total_cost += PRICES[sku] * shopping_list[INDEX[sku]]
 
 	return total_cost
+
+print(checkout('A'*9))
