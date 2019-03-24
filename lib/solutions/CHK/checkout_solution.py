@@ -73,7 +73,8 @@ for group_deal in GROUP_DEALS:
 					carry = False
 			else:
 				break
-		print(skus[indexing[0], skus[indexing[1], skus[indexing[2])
+		sku_code = skus[indexing[0]] + skus[indexing[1]] + skus[indexing[2]]
+		DEALS[sku_code] = price
 
 
 
@@ -104,6 +105,8 @@ def organise_deals(deals):
 
 DEALS = organise_deals(DEALS) 
 
+for deal in DEALS:
+	print(deal)
 
 # noinspection PyUnusedLocal
 # skus = unicode string
@@ -137,6 +140,8 @@ def checkout(skus):
 		total_cost += PRICES[sku] * shopping_list[INDEX[sku]]
 
 	return total_cost
+
+print(checkout('ZZZ'))
 
 
 
