@@ -29,11 +29,11 @@ PRICES =  {A:50,
 
 DEALS = {} # dictionary of deals, 1 deal is a list in format {SKU: [number required, price]}
 # will be ordered later
-DEALS['A'*5] = 200
-DEALS['BEE'] = 80
 DEALS['A'*3] = 130
 DEALS['B'*2] = 45
 DEALS['F'*3] = 20
+DEALS['A'*5] = 200
+DEALS['BEE'] = 80
 
 INDEX = {} # index dictionary used for shopping_list variable, 
 # format {'A':0, 'B':1, etc...}
@@ -55,12 +55,17 @@ def organise_deals(deals):
 			raw_price += PRICES[sku]
 		deal_list.append([deal, price, raw_price - price])
 
-	n_deals = len(deal_list):
+	n_deals = len(deal_list)
 	for i in range(n_deals):
 		best_deal = ['', 0, 0]
-		for deal_info in deal_list:
+		for deal_info in deal_list: #[sku code, price, amount saved]
 			if deal_info[2] > best_deal[2]: # if it is a better deal
 				best_deal = deal_info
+		organised_deals[best_deal[0]] = best_deal[1]
+		deal_list.remove(best_deal)
+
+	return organised_deals
+
 
 DEALS = organise_deals(DEALS) 
 
