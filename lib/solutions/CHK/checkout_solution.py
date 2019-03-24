@@ -55,6 +55,11 @@ DEALS['V'*3] = 130
 GROUP_DEALS = [] # elements are a list in format: [SKUs, n_elements, price]
 GROUP_DEALS.append(['STXYZ', 3, 45])
 
+# analyse group deals
+for group_deal in GROUP_DEALS:
+	skus, n_elements, price = group_deal
+
+
 
 def organise_deals(deals):
 	# organises deals based on amount saved, 
