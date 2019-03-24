@@ -28,8 +28,7 @@ PRICES =  {A:50,
 	}
 
 DEALS = {} # dictionary of deals, 1 deal is a list in format {SKU: [number required, price]}
-
-# important to order from best deals to worst, could add sort function to do this if more deals added
+# will be ordered later
 DEALS['A'*5] = 200
 DEALS['BEE'] = 80
 DEALS['A'*3] = 130
@@ -48,10 +47,15 @@ def organise_deals(deals):
 	# input - dictionary in same format as 'DEALS' var defined above
 	# returns - dictionary in same format but organised by how much price is saved
 	organised_deals = {}
-	deal_list = [] # in format [sku code, price, amount saved]
+	deal_list = [] # in format [sku code, price, amount saved] for sorting later
 	for deal in deals: # deal is a string desribing sku code for deal
+		raw_price = 0
 		for sku in deal:
+			raw_price += PRICES[sku]
 
+DEALS = organise_deals(DEALS) # test code
+for deal in DEALS:
+	print(deal, DEALS[deal])
 
 # noinspection PyUnusedLocal
 # skus = unicode string
@@ -85,6 +89,7 @@ def checkout(skus):
 		total_cost += PRICES[sku] * shopping_list[INDEX[sku]]
 
 	return total_cost
+
 
 
 
