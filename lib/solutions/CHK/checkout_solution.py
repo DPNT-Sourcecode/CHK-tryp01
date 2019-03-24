@@ -49,9 +49,15 @@ def organise_deals(deals):
 	organised_deals = {}
 	deal_list = [] # in format [sku code, price, amount saved] for sorting later
 	for deal in deals: # deal is a string desribing sku code for deal
+		price = deals[deal]
 		raw_price = 0
 		for sku in deal:
 			raw_price += PRICES[sku]
+		deal_list.append([deal, price, raw_price - price])
+
+	best_deal = ['', 0, 0]
+	for info in deal_list:
+
 
 DEALS = organise_deals(DEALS) # test code
 for deal in DEALS:
@@ -89,6 +95,7 @@ def checkout(skus):
 		total_cost += PRICES[sku] * shopping_list[INDEX[sku]]
 
 	return total_cost
+
 
 
 
