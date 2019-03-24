@@ -28,13 +28,19 @@ def checkout(skus):
 	total_cost = 0
 	for deal in DEALS: # check each deal in order of best to worst
 		make_deal = True
-		for sku in deal: # go through all shopping items
-			if deal.count(sku) > shopping_list[INDEX[sku]]: # deal cannot be made
-				make_deal = False
-				break
-		if make_deal:
-			total_cost += DEALS[deal] # add price of deal
-			for sku in deal:
-				shopping_list[INDEX[sku]] -= 1
+		while make_deal:
+			for sku in deal: # go through all shopping items in deal 
+				# (can have duplicates which will slow things down)
+				if deal.count(sku) > shopping_list[INDEX[sku]]: 
+					# if there are more elements in deal than shopping list then deal cannot be made
+					make_deal = False
+					break
+			if make_deal:
+				total_cost += DEALS[deal] # add price of deal
+				for sku in deal:
+					shopping_list[INDEX[sku]] -= 1
+
+	for sku in PRICES: # remaining shopping list
+
 
 	return total_cost
