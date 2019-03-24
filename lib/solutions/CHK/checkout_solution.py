@@ -8,7 +8,12 @@ DEALS['B'] = [2, 45]
 # noinspection PyUnusedLocal
 # skus = unicode string
 def checkout(skus):
-	print('')
+
+	# check input is valid
+	for sku in skus:
+		if sku not in PRICES:
+			return -1
+
 	total_cost = 0
 	for sku in PRICES:
 		n = skus.count(sku) # number of elements
