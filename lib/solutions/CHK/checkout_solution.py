@@ -1,5 +1,32 @@
 # data
-PRICES = {'A':50, 'B':30, 'C':20, 'D':15, 'E':40, 'F':10} # menu
+PRICES =  {A:50,    
+			B:30,    
+			C:20,    
+			D:15,    
+			E:40,    
+			F:10,
+			G:20, 
+			H:10,
+			I:35, 
+			J:60, 
+			K:80, 
+			L:90, 
+			M:15, 
+			N:40, 
+			O:10, 
+			P:50,  
+			Q:30,  
+			R:50, 
+			S:30, 
+			T:20, 
+			U:40,  
+			V:50,  
+			W:20, 
+			X:90, 
+			Y:10, 
+			Z:50, 
+	}
+
 DEALS = {} # dictionary of deals, 1 deal is a list in format {SKU: [number required, price]}
 
 # important to order from best deals to worst, could add sort function to do this if more deals added
@@ -21,7 +48,7 @@ def organise_deals(deals):
 	# input - dictionary in same format as 'DEALS' var defined above
 	# returns - dictionary in same format but organised by how much price is saved
 	organised_deals = {}
-	deal_list = [] # in 
+	deal_list = [] # in format [sku code, price, amount saved]
 	for deal in deals: # deal is a string desribing sku code for deal
 		for sku in deal:
 
@@ -58,5 +85,6 @@ def checkout(skus):
 		total_cost += PRICES[sku] * shopping_list[INDEX[sku]]
 
 	return total_cost
+
 
 
