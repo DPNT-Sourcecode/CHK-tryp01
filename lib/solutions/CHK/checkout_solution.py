@@ -58,6 +58,9 @@ GROUP_DEALS.append(['STXYZ', 3, 45])
 # analyse group deals
 for group_deal in GROUP_DEALS:
 	skus, n_elements, price = group_deal
+	indexing = []  
+	for i in range(n_elements):
+		indexing.append(0)
 
 
 
@@ -87,6 +90,7 @@ def organise_deals(deals):
 
 
 DEALS = organise_deals(DEALS) 
+
 
 # noinspection PyUnusedLocal
 # skus = unicode string
@@ -120,3 +124,4 @@ def checkout(skus):
 		total_cost += PRICES[sku] * shopping_list[INDEX[sku]]
 
 	return total_cost
+
