@@ -56,6 +56,7 @@ def organise_deals(deals):
 	# organises deals based on amount saved, 
 	# input - dictionary in same format as 'DEALS' var defined above
 	# returns - dictionary in same format but organised by how much price is saved
+	# first analyse data and put into a list
 	organised_deals = {}
 	deal_list = [] # in format [sku code, price, amount saved] for sorting later
 	for deal in deals: # deal is a string desribing sku code for deal
@@ -64,7 +65,7 @@ def organise_deals(deals):
 		for sku in deal:
 			raw_price += PRICES[sku]
 		deal_list.append([deal, price, raw_price - price])
-
+	# now sort analysed data
 	n_deals = len(deal_list)
 	for i in range(n_deals):
 		best_deal = deal_list[0]
@@ -73,7 +74,6 @@ def organise_deals(deals):
 				best_deal = deal_info
 		organised_deals[best_deal[0]] = best_deal[1]
 		deal_list.remove(best_deal)
-
 	return organised_deals
 
 
@@ -111,6 +111,7 @@ def checkout(skus):
 		total_cost += PRICES[sku] * shopping_list[INDEX[sku]]
 
 	return total_cost
+
 
 
 
