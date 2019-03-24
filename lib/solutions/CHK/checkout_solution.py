@@ -2,7 +2,7 @@
 PRICES = {'A':50, 'B':30, 'C':20, 'D':15, 'E':40} # menu
 DEALS = {} # dictionary of deals, 1 deal is a list in format {SKU: [number required, price]}
 
-# important to order from best deals to worst, could add sort function to do this for us
+# important to order from best deals to worst, could add sort function to do this if more deals added
 DEALS['A'*5] = 200
 DEALS['BEE'] = 80
 DEALS['A'*3] = 130
@@ -47,5 +47,3 @@ def checkout(skus):
 		total_cost += PRICES[sku] * shopping_list[INDEX[sku]]
 
 	return total_cost
-
-print(checkout('A'*9))
