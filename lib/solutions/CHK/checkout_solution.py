@@ -16,6 +16,13 @@ for sku in PRICES:
 	INDEX[sku] = i
 	i+=1
 
+def organise_deals(deals):
+	# organises deals based on amount saved, input - dictionary in same format as 'DEALS' var defined above
+	organised_deals = {}
+	for deal in deals:
+		for sku in deal:
+
+
 # noinspection PyUnusedLocal
 # skus = unicode string
 def checkout(skus):
